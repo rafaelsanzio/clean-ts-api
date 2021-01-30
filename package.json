@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest tsconfig-paths --silent --noStackTrace --runInBand",
-    "test:verbose": "yarn test tsconfig-paths",
-    "test:unit": "yarn test tsconfig-paths--watch -c jest-unit-config.ts",
-    "test:integration": "yarn test tsconfig-paths --watch -c jest-integration-config.ts",
-    "test:ci": "yarn test tsconfig-paths --coverage"
+    "test": "jest --silent --noStackTrace --runInBand",
+    "test:verbose": "yarn test",
+    "test:unit": "yarn test --watch -c jest-unit-config.ts",
+    "test:integration": "yarn test --watch -c jest-integration-config.ts",
+    "test:ci": "yarn test --coverage"
   },
   "keywords": [],
   "author": "",
