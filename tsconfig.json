@@ -12,7 +12,9 @@
     "baseUrl": "./src",
     "allowJs": true,
     "paths": {
-      //"@presentation/*": ["presentation/*"]
+      "@presentation/*": ["presentation/*"],
+      "@domain/*": ["domain/*"],
+      "@data/*": ["data/*"]
     },
 
     "esModuleInterop": true,
