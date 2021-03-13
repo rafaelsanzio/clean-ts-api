@@ -14,7 +14,10 @@
     "paths": {
       "@presentation/*": ["presentation/*"],
       "@domain/*": ["domain/*"],
-      "@data/*": ["data/*"]
+      "@data/*": ["data/*"],
+      "@main/*": ["main/*"],
+      "@infra/*": ["infra/*"],
+      "@utils/*": ["utils/*"]
     },
 
     "esModuleInterop": true,
