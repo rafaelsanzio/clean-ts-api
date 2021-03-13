@@ -6,6 +6,7 @@ import { LogControllerDecorator } from './log';
 const makeController = (): Controller => {
   class ControllerStub implements Controller {
     async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
+      console.log('aqui');
       const httpResponse: HttpResponse = {
         statusCode: 200,
         body: {
