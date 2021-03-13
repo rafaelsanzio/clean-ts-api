@@ -3,9 +3,8 @@ const { compilerOptions } = require('./tsconfig.json');
 
 module.exports = {
   roots: ['<rootDir>/src'],
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!<rootDir>/src/main/**'],
   coverageDirectory: 'coverage',
-  coverageReporters: ['text-summary', 'lcov'],
   testEnvironment: 'node',
   preset: '@shelf/jest-mongodb',
   transform: {
