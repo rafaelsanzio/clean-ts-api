@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "sucrase-node src/main/server.ts",
+    "start": "ts-node src/main/server.ts",
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "yarn --passWithNoTests test",
     "test:unit": "yarn test --watch -c jest-unit-config.js",
@@ -29,6 +30,7 @@
     "supertest": "^6.1.3",
     "ts-jest": "^26.4.4",
     "ts-node-dev": "^1.1.1",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.1.3"
   },
   "dependencies": {
