@@ -8,18 +8,26 @@ import {
 
 import { badRequest, serverError, ok } from '../../helpers/http-helper';
 import { InvalidParamError, MissingParamError } from '../../errors';
+import { Validation } from '@presentation/helpers/validators/validation';
 
 export class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator;
   private readonly addAccount: AddAccount;
+  private readonly validation: Validation;
 
-  constructor(emailValidator: EmailValidator, addAccount: AddAccount) {
+  constructor(
+    emailValidator: EmailValidator,
+    addAccount: AddAccount,
+    validation: Validation,
+  ) {
     this.emailValidator = emailValidator;
     this.addAccount = addAccount;
+    this.validation = validation;
   }
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
+      this.validation.validate(httpRequest.body);
       const requiredFields = [
         'name',
         'email',
@@ -32,6 +40,7 @@ export class SignUpController implements Controller {
           return badRequest(new MissingParamError(field));
         }
       }
+
       const { name, email, password, passwordConfirmation } = httpRequest.body;
       if (password !== passwordConfirmation) {
         return badRequest(new InvalidParamError('passwordConfirmation'));
