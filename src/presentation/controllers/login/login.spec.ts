@@ -20,7 +20,7 @@ const makeEmailValidator = (): EmailValidator => {
 
 const makeAuthentication = (): Authentication => {
   class AuthenticationStub implements Authentication {
-    auth(email: string, password: string): Promise<string> {
+    auth(email: string, password: string): Promise<string | undefined> {
       return new Promise(resolve => resolve('any_token'));
     }
   }
@@ -125,7 +125,7 @@ describe('Login Controller', () => {
     const { sut, authenticationStub } = makeSut();
     jest
       .spyOn(authenticationStub, 'auth')
-      .mockReturnValueOnce(new Promise(resolve => resolve(null)));
+      .mockReturnValueOnce(new Promise(resolve => resolve(undefined)));
 
     const httpRequest = makeFakeRequest();
 
