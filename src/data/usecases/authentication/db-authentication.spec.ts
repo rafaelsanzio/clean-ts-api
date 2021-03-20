@@ -1,4 +1,4 @@
-import { LoadAccountByEmailRepository } from '@data/protocols/load-account-by-email-repository';
+import { LoadAccountByEmailRepository } from '@data/protocols/db/load-account-by-email-repository';
 import { AccountModel } from '@domain/models/account';
 import { AuthenticationModel } from '@domain/usecases/authentication';
 import { DbAuthentication } from './db-authentication';
@@ -47,7 +47,7 @@ const makeSut = (): SutTypes => {
   };
 };
 
-describe('DbAuthentication usecase', () => {
+describe('DbAuthentication UseCase', () => {
   test('Should call LoadAccountByEmailRepository with correct email', async () => {
     const { sut, loadAccountByEmailRepositoryStub } = makeSut();
     const loadSpy = jest.spyOn(loadAccountByEmailRepositoryStub, 'load');
