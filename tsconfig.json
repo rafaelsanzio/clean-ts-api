@@ -16,8 +16,7 @@
       "@domain/*": ["domain/*"],
       "@data/*": ["data/*"],
       "@main/*": ["main/*"],
-      "@infra/*": ["infra/*"],
-      "@utils/*": ["utils/*"]
+      "@infra/*": ["infra/*"]
     },
 
     "esModuleInterop": true,
