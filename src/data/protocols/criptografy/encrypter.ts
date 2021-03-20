@@ -1,3 +1,3 @@
 export interface Encrypter {
-  encrypt(value: string): Promise<string | undefined>;
+  encrypt(value: string): Promise<string>;
 }
