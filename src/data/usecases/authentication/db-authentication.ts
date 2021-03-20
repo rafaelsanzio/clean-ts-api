@@ -1,11 +1,11 @@
-import { HashCompare } from '@data/protocols/criptografy/hash-compare';
-import { TokenGenerator } from '@data/protocols/criptografy/token-generator';
-import { LoadAccountByEmailRepository } from '@data/protocols/db/load-account-by-email-repository';
-import { UpdateAccessTokenRepository } from '@data/protocols/db/update-access-token-repository';
 import {
+  HashCompare,
+  TokenGenerator,
+  LoadAccountByEmailRepository,
+  UpdateAccessTokenRepository,
   Authentication,
   AuthenticationModel,
-} from '@domain/usecases/authentication';
+} from './db-authentication-protocols';
 
 export class DbAuthentication implements Authentication {
   private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository;
