@@ -1,3 +1,4 @@
+import { HashCompare } from '@data/protocols/criptografy/hash-compare';
 import { LoadAccountByEmailRepository } from '@data/protocols/db/load-account-by-email-repository';
 import {
   Authentication,
@@ -6,12 +7,22 @@ import {
 
 export class DbAuthentication implements Authentication {
   private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository;
-  constructor(loadAccountByEmailRepository: LoadAccountByEmailRepository) {
+  private readonly hashCompare: HashCompare;
+  constructor(
+    loadAccountByEmailRepository: LoadAccountByEmailRepository,
+    hashCompare: HashCompare,
+  ) {
     this.loadAccountByEmailRepository = loadAccountByEmailRepository;
+    this.hashCompare = hashCompare;
   }
 
   async auth(authentication: AuthenticationModel): Promise<string | undefined> {
-    await this.loadAccountByEmailRepository.load(authentication.email);
+    const account = await this.loadAccountByEmailRepository.load(
+      authentication.email,
+    );
+    if (account) {
+      await this.hashCompare.compare(authentication.password, account.password);
+    }
     return undefined;
   }
 }
