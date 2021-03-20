@@ -5,7 +5,11 @@ import {
   AddAccount,
 } from './signup-protocols';
 
-import { badRequest, serverError, ok } from '@presentation/helpers/http-helper';
+import {
+  badRequest,
+  serverError,
+  ok,
+} from '@presentation/helpers/http/http-helper';
 import { Validation } from '@presentation/helpers/validators/validation';
 
 export class SignUpController implements Controller {

@@ -1,6 +1,6 @@
 import { SignUpController } from './signup';
 import { HttpRequest } from '@presentation/protocols';
-import { badRequest, ok } from '@presentation/helpers/http-helper';
+import { badRequest, ok } from '@presentation/helpers/http/http-helper';
 import { MissingParamError, ServerError } from '../../errors';
 import {
   AccountModel,
