@@ -100,7 +100,7 @@ describe('DbAuthentication UseCase', () => {
     await expect(promise).rejects.toThrow();
   });
 
-  test('Should return null if LoadAccountByEmailRepository returns undefined', async () => {
+  test('Should return undefined if LoadAccountByEmailRepository returns undefined', async () => {
     const { sut, loadAccountByEmailRepositoryStub } = makeSut();
 
     jest
@@ -136,7 +136,7 @@ describe('DbAuthentication UseCase', () => {
     await expect(promise).rejects.toThrow();
   });
 
-  test('Should return null if HashCompare returns false', async () => {
+  test('Should return undefined if HashCompare returns false', async () => {
     const { sut, hashCompareStub } = makeSut();
 
     jest
@@ -168,5 +168,13 @@ describe('DbAuthentication UseCase', () => {
     const authentication = makeFakeAuthentication();
     const promise = sut.auth(authentication);
     await expect(promise).rejects.toThrow();
+  });
+
+  test('Should call TokenGenerator with correct id', async () => {
+    const { sut } = makeSut();
+
+    const authentication = makeFakeAuthentication();
+    const accessToken = await sut.auth(authentication);
+    expect(accessToken).toBe('any_token');
   });
 });
