@@ -3,9 +3,7 @@ import bcrypt from 'bcrypt';
 import { Hasher } from '../../../data/protocols/criptografy/hasher';
 
 export class BcryptAdapter implements Hasher, HashCompare {
-  private readonly salt: number;
-
-  constructor(salt: number) {
+  constructor(private readonly salt: number) {
     this.salt = salt;
   }
 
