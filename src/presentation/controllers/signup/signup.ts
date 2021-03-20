@@ -10,7 +10,7 @@ import {
   serverError,
   ok,
 } from '@presentation/helpers/http/http-helper';
-import { Validation } from '@presentation/helpers/validators/validation';
+import { Validation } from '@presentation/protocols/validation';
 
 export class SignUpController implements Controller {
   private readonly addAccount: AddAccount;
