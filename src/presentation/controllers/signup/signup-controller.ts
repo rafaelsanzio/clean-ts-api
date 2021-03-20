@@ -3,7 +3,7 @@ import {
   HttpRequest,
   Controller,
   AddAccount,
-} from './signup-protocols';
+} from './signup-controller-protocols';
 
 import {
   badRequest,
